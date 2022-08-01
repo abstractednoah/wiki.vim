@@ -672,6 +672,16 @@ OPTIONS                                                   *wiki-config-options*
 
   Default: 'all'
 
+*g:wiki_mappings_prefix*
+  Prefix for most default mappings (which are contingent on
+  |g:wiki_mappings_use_defaults|).
+
+  All default mappings are listed in |wiki-mappings-default|; the mappings
+  whose prefix is determined by this option are listed there with the
+  '<leader>w' default (leading '<leader>w' gets replaced by this option).
+
+  Default: '<leader>w'
+
 *g:wiki_mappings_global*
 *g:wiki_mappings_local*
 *g:wiki_mappings_local_journal*
@@ -1274,7 +1284,8 @@ mapping. The mode specifier is a single letter which indicates which mode the
 mapping is valid in. See e.g. |nmap|, |imap|, |omap| or |xmap| for more
 information about the different modes. The lines annotated with `[GLOBAL]`
 specify global mappings available anywhere, and the liens annotated
-`[JOURNAL]` are only available within the journal.
+`[JOURNAL]` are only available within the journal. See also
+|g:wiki_mappings_prefix|, which determines the '<leader>w' prefix.
 
   MODE  LHS                 RHS~
   ====  ===                 ===

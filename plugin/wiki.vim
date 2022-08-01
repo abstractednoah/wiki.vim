@@ -53,6 +53,7 @@ call wiki#init#option('wiki_link_toggles', {
 call wiki#init#option('wiki_map_create_page', '')
 call wiki#init#option('wiki_map_text_to_link', '')
 call wiki#init#option('wiki_mappings_use_defaults', 'all')
+call wiki#init#option('wiki_mappings_prefix', '<leader>w')
 call wiki#init#option('wiki_month_names', [
       \ 'January', 'February', 'March', 'April', 'May', 'June', 'July',
       \ 'August', 'September', 'October', 'November', 'December'
@@ -99,10 +100,10 @@ nnoremap <silent> <plug>(wiki-fzf-tags)  :WikiFzfTags<cr>
 " Apply default mappings
 let s:mappings = index(['all', 'global'], g:wiki_mappings_use_defaults) >= 0
       \ ? {
-      \ '<plug>(wiki-index)' : '<leader>ww',
-      \ '<plug>(wiki-open)' : '<leader>wn',
-      \ '<plug>(wiki-journal)' : '<leader>w<leader>w',
-      \ '<plug>(wiki-reload)' : '<leader>wx',
+      \ '<plug>(wiki-index)' : g:wiki_mappings_prefix . 'w',
+      \ '<plug>(wiki-open)' : g:wiki_mappings_prefix . 'n',
+      \ '<plug>(wiki-journal)' : g:wiki_mappings_prefix . '<leader>w',
+      \ '<plug>(wiki-reload)' : g:wiki_mappings_prefix . 'x',
       \} : {}
 call extend(s:mappings, get(g:, 'wiki_mappings_global', {}))
 call wiki#init#apply_mappings_from_dict(s:mappings, '')
