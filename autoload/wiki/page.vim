@@ -59,10 +59,14 @@ function! wiki#page#rename(newname, ...) abort "{{{1
           \)
   endif
 
-  " Does not support renaming files inside journal
-  if b:wiki.in_journal
-    return wiki#log#error('Not supported yet.')
-  endif
+  " TODO: Commenting this out on my personal fork because I keep the journal set
+  " to "" so that date pages are created in the root and the directory tree is
+  " completely flat. I should probably figure out a robust way to keep the
+  " journal features I like whilst eliminating the pesky directory "/journal".
+  " " Does not support renaming files inside journal
+  " if b:wiki.in_journal
+  "   return wiki#log#error('Not supported yet.')
+  " endif
 
   " The new name must be nontrivial
   if empty(substitute(a:newname, '\s*', '', ''))
